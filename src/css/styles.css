@@ -72,6 +72,11 @@ body {
   }
 }
 
+*::selection {
+  background-color: var(--color-text);
+  color: var(--color-neutral);
+}
+
 @layer base {
   * {
     font-family: var(--font-sans);

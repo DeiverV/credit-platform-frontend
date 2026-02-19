@@ -1,4 +1,5 @@
-import { create } from 'zustand'
+import { create, type StateCreator } from 'zustand'
+import { persist } from 'zustand/middleware'
 
 interface AuthUser {
   id: string
@@ -12,8 +13,14 @@ interface AuthState {
   clearUser: () => void
 }
 
-export const useAuthStore = create<AuthState>((set) => ({
+const s: StateCreator<AuthState> = (set) => ({
   user: null,
   setUser: (user) => set({ user }),
   clearUser: () => set({ user: null }),
-}))
+})
+
+export const useAuthStore = create<AuthState>()(
+  persist(s, {
+    name: 'auth',
+  }),
+)

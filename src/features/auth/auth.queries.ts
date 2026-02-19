@@ -48,10 +48,12 @@ export const useRegisterMutation = () => {
 }
 
 export const useLogoutMutation = () => {
+  const clearUser = useAuthStore((state) => state.clearUser)
   return useMutation({
     mutationFn: authUseCases.logout,
     onSuccess: () => {
       handleLogout()
+      clearUser()
     },
   })
 }
