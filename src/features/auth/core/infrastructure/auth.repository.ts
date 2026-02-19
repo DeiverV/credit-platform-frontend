@@ -1,6 +1,7 @@
 import type { RepositoryFactory } from '@/types/repository-factory.type'
 import type { IAuthRepository } from '../domain/auth.repository'
 import type { IUserCredentials } from '../domain/auth.types'
+import Cookies from 'js-cookie'
 
 export const authRepository: RepositoryFactory<IAuthRepository> = (api) => ({
   async login(payload: IUserCredentials) {
@@ -16,6 +17,8 @@ export const authRepository: RepositoryFactory<IAuthRepository> = (api) => ({
     return data
   },
   async logout() {
-    await api.post('/auth/logout')
+    await api.post('/auth/logout', undefined, {
+      headers: { Authorization: `Bearer ${Cookies.get('accessToken')}` },
+    })
   },
 })
