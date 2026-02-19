@@ -4,21 +4,14 @@ import { useTranslation } from 'react-i18next'
 import { Loader2 } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@/components/ui/form'
-import { Input } from '@/components/ui/input'
+import { Form } from '@/components/ui/form'
 
 import { useRegisterMutation } from '../../auth.queries'
 import {
   registerSchema,
   type RegisterFormValues,
 } from '../../core/domain/auth.schemas'
+import InputField from '@/components/forms/input-field'
 
 export const RegisterForm = () => {
   const { t } = useTranslation('auth')
@@ -35,61 +28,26 @@ export const RegisterForm = () => {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-        <FormField
-          control={form.control}
+        <InputField
           name="email"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>{t('register.email')}</FormLabel>
-              <FormControl>
-                <Input
-                  type="email"
-                  placeholder={t('register.emailPlaceholder')}
-                  autoComplete="email"
-                  {...field}
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
+          label={t('register.email')}
+          placeholder={t('register.emailPlaceholder')}
+          type="email"
+          autoComplete="email"
         />
-
-        <FormField
-          control={form.control}
+        <InputField
           name="password"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>{t('register.password')}</FormLabel>
-              <FormControl>
-                <Input
-                  type="password"
-                  placeholder={t('register.passwordPlaceholder')}
-                  autoComplete="new-password"
-                  {...field}
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
+          label={t('register.password')}
+          placeholder={t('register.passwordPlaceholder')}
+          type="password"
+          autoComplete="new-password"
         />
-
-        <FormField
-          control={form.control}
+        <InputField
           name="confirmPassword"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>{t('register.confirmPassword')}</FormLabel>
-              <FormControl>
-                <Input
-                  type="password"
-                  placeholder={t('register.confirmPasswordPlaceholder')}
-                  autoComplete="new-password"
-                  {...field}
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
+          label={t('register.confirmPassword')}
+          placeholder={t('register.confirmPasswordPlaceholder')}
+          type="password"
+          autoComplete="new-password"
         />
 
         {error && (

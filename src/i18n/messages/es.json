@@ -38,6 +38,43 @@
   "common": {
     "theme": "Tema",
     "language": "Idioma",
-    "primaryColor": "Color primario"
+    "primaryColor": "Color primario",
+    "pickDate": "Selecciona una fecha"
+  },
+  "credits": {
+    "filters": {
+      "country": "País",
+      "selectCountry": "Selecciona un país",
+      "status": "Estado",
+      "selectStatus": "Selecciona un estado",
+      "fromDate": "Desde",
+      "toDate": "Hasta",
+      "apply": "Aplicar filtros",
+      "clear": "Limpiar"
+    },
+    "credit": {
+      "fullName": "Nombre completo",
+      "applicationDate": "Fecha de solicitud",
+      "country": "País",
+      "documentId": "ID del documento",
+      "documentType": "Tipo de documento",
+      "monthlyIncome": "Ingreso mensual",
+      "requestedAmount": "Monto solicitado",
+      "riskNotes": "Notas de riesgo",
+      "riskScore": "Puntaje de riesgo"
+    },
+    "page": {
+      "title": "Solicitudes de crédito",
+      "listTitle": "Lista de solicitudes de crédito",
+      "listDescription": "Administra las solicitudes de crédito recibidas.",
+      "emptyState": "No hay créditos",
+      "logout": "Cerrar sesión"
+    },
+    "status": {
+      "PENDING": "Pendiente",
+      "APPROVED": "Aprobado",
+      "REJECTED": "Rechazado",
+      "PROCESSING": "En proceso"
+    }
   }
 }

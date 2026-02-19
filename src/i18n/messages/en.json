@@ -38,6 +38,43 @@
   "common": {
     "theme": "Theme",
     "language": "Language",
-    "primaryColor": "Primary color"
+    "primaryColor": "Primary color",
+    "pickDate": "Select a date"
+  },
+  "credits": {
+    "filters": {
+      "country": "Country",
+      "selectCountry": "Select a country",
+      "status": "Status",
+      "selectStatus": "Select a status",
+      "fromDate": "From",
+      "toDate": "To",
+      "apply": "Apply filters",
+      "clear": "Clear"
+    },
+    "credit": {
+      "fullName": "Full name",
+      "applicationDate": "Application date",
+      "country": "Country",
+      "documentId": "Document ID",
+      "documentType": "Document type",
+      "monthlyIncome": "Monthly income",
+      "requestedAmount": "Requested amount",
+      "riskNotes": "Risk notes",
+      "riskScore": "Risk score"
+    },
+    "page": {
+      "title": "Credit Applications",
+      "listTitle": "List of credit applications",
+      "listDescription": "Manage the received credit applications.",
+      "emptyState": "No credits found",
+      "logout": "Logout"
+    },
+    "status": {
+      "PENDING": "Pending",
+      "APPROVED": "Approved",
+      "REJECTED": "Rejected",
+      "PROCESSING": "Processing"
+    }
   }
 }

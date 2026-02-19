@@ -4,21 +4,15 @@ import { useTranslation } from 'react-i18next'
 import { Loader2 } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@/components/ui/form'
-import { Input } from '@/components/ui/input'
+import { Form } from '@/components/ui/form'
 
 import { useLoginMutation } from '../../auth.queries'
 import {
   loginSchema,
   type LoginFormValues,
 } from '../../core/domain/auth.schemas'
+
+import InputField from '@/components/forms/input-field'
 
 export const LoginForm = () => {
   const { t } = useTranslation('auth')
@@ -34,42 +28,19 @@ export const LoginForm = () => {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-        <FormField
-          control={form.control}
+        <InputField
           name="email"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>{t('login.email')}</FormLabel>
-              <FormControl>
-                <Input
-                  type="email"
-                  placeholder={t('login.emailPlaceholder')}
-                  autoComplete="email"
-                  {...field}
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
+          label={t('login.email')}
+          placeholder={t('login.emailPlaceholder')}
+          type="email"
+          autoComplete="email"
         />
-
-        <FormField
-          control={form.control}
+        <InputField
           name="password"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>{t('login.password')}</FormLabel>
-              <FormControl>
-                <Input
-                  type="password"
-                  placeholder={t('login.passwordPlaceholder')}
-                  autoComplete="current-password"
-                  {...field}
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
+          label={t('login.password')}
+          placeholder={t('login.passwordPlaceholder')}
+          type="password"
+          autoComplete="current-password"
         />
 
         {error && (

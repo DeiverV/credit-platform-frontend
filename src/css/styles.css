@@ -30,7 +30,7 @@
 
   --color-primary: #001bb7;
   --color-secondary: #ff7000;
-  --radius-default: 10px;
+  --radius-default: 6px;
   --color-neutral: #f5f1dc;
   --color-text: #1e1e1e;
 }
@@ -142,22 +142,41 @@ body {
 }
 
 @theme inline {
-  --background: var(--background);
-  --foreground: var(--foreground);
-  --card: var(--card);
-  --card-foreground: var(--card-foreground);
-  --popover: var(--popover);
-  --popover-foreground: var(--popover-foreground);
-  --primary: var(--primary);
-  --primary-foreground: var(--primary-foreground);
-  --secondary: var(--secondary);
-  --secondary-foreground: var(--secondary-foreground);
-  --muted: var(--muted);
-  --muted-foreground: var(--muted-foreground);
-  --accent: var(--accent);
-  --accent-foreground: var(--accent-foreground);
-  --destructive: var(--destructive);
-  --border: var(--border);
-  --input: var(--input);
-  --ring: var(--ring);
+  --background: var(--color-neutral);
+  --foreground: var(--color-text);
+  --card: var(--color-neutral);
+  --card-foreground: var(--color-text);
+  --popover: var(--color-neutral);
+  --popover-foreground: var(--color-text);
+  --primary: var(--color-primary);
+  --primary-foreground: var(--color-primary-foreground);
+  --secondary: var(--color-secondary);
+  --secondary-foreground: var(--color-secondary-foreground);
+  --muted: var(--color-muted);
+  --muted-foreground: var(--color-muted-foreground);
+  --accent: var(--color-accent);
+  --accent-foreground: var(--color-accent-foreground);
+  --destructive: var(--color-red-500);
+  --border: var(--color-neutral-200);
+  --input: var(--color-neutral-50);
+}
+
+:root {
+  --background: var(--color-neutral);
+  --foreground: var(--color-text);
+  --card: var(--color-neutral);
+  --card-foreground: var(--color-text);
+  --popover: var(--color-neutral);
+  --popover-foreground: var(--color-text);
+  --primary: var(--color-primary);
+  --primary-foreground: var(--color-primary-foreground);
+  --secondary: var(--color-secondary);
+  --secondary-foreground: var(--color-secondary-foreground);
+  --muted: var(--color-muted);
+  --muted-foreground: var(--color-muted-foreground);
+  --accent: var(--color-accent);
+  --accent-foreground: var(--color-accent-foreground);
+  --destructive: var(--color-red-500);
+  --border: var(--color-neutral-200);
+  --input: var(--color-neutral-50);
 }
