@@ -5,6 +5,7 @@ import Cookies from 'js-cookie'
 import { authUseCases } from './core'
 import { useAuthStore } from './auth.store'
 import type { AxiosError } from 'axios'
+import { handleLogout } from './api/refresh-manager'
 
 const saveSession = (data: {
   accessToken: string
@@ -42,6 +43,15 @@ export const useRegisterMutation = () => {
     },
     onError: (error: AxiosError) => {
       return error
+    },
+  })
+}
+
+export const useLogoutMutation = () => {
+  return useMutation({
+    mutationFn: authUseCases.logout,
+    onSuccess: () => {
+      handleLogout()
     },
   })
 }

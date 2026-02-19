@@ -1,14 +1,16 @@
-import { handleLogout } from '@/features/auth/api/refresh-manager'
-import { authUseCases } from '@/features/auth/core'
-import { useMutation } from '@tanstack/react-query'
+import { useLogoutMutation } from '@/features/auth/auth.queries'
 
 export const CreditsPage = () => {
-  const mutation = useMutation({
-    mutationFn: authUseCases.logout,
-    onSuccess: () => {
-      handleLogout()
-    },
-  })
+  const logoutMutation = useLogoutMutation()
 
-  return <button onClick={() => mutation.mutateAsync()}>Logout</button>
+  return (
+    <main>
+      <button
+        className="bg-red-500 text-white p-2 rounded"
+        onClick={() => logoutMutation.mutateAsync()}
+      >
+        Logout
+      </button>
+    </main>
+  )
 }
