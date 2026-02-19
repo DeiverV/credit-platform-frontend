@@ -14,6 +14,7 @@ export const useListCreditsQuery = (params: IListCreditsPayload) => {
   return useQuery({
     queryKey: [CreditsQueryKeys.LIST_CREDITS, params],
     queryFn: () => creditsUseCases.getListCredits(params),
+    refetchOnWindowFocus: true,
   })
 }
 

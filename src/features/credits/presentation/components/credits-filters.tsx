@@ -18,7 +18,10 @@ export const CreditsFilters = () => {
   const { t } = useTranslation('credits')
 
   const navigate = useNavigate({ from: '/credits' })
-  const search = useSearch({ from: '/credits' })
+  const search = useSearch({
+    from: '/credits',
+    structuralSharing: false,
+  }) as ListCreditsFormValues
 
   const form = useForm<ListCreditsFormValues>({
     resolver: zodResolver(listCreditsSchema),
@@ -56,7 +59,7 @@ export const CreditsFilters = () => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 items-end mb-6 p-4 bg-white dark:bg-neutral-950 rounded-default shadow-xs border border-neutral-200 dark:border-neutral-800"
+        className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 items-end mb-6 p-4 bg-white dark:bg-neutral-900 rounded-default shadow-xs border border-neutral-200 dark:border-neutral-800"
       >
         <SelectField
           name="country"
