@@ -1,9 +1,12 @@
-import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute, redirect } from '@tanstack/react-router'
+import Cookies from 'js-cookie'
+import { AuthPage } from '@/features/auth/presentation/auth-page'
 
 export const Route = createFileRoute('/auth')({
-  component: RouteComponent,
+  beforeLoad: () => {
+    if (Cookies.get('accessToken')) {
+      throw redirect({ to: '/credits' })
+    }
+  },
+  component: AuthPage,
 })
-
-function RouteComponent() {
-  return <div>Auth</div>
-}

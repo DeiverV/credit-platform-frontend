@@ -8,6 +8,13 @@ import { routeTree } from './routeTree.gen'
 import './i18n/i18n'
 import './css/styles.css'
 import './css/animations.css'
+import { CustomizeStylesMenu } from './components/theme-menu/theme-menu.tsx'
+
+// Restore user theme preferences before first paint
+const savedTheme = localStorage.getItem('theme')
+const savedPrimary = localStorage.getItem('primary')
+if (savedTheme) document.body.setAttribute('data-theme', savedTheme)
+if (savedPrimary) document.body.setAttribute('data-theme-primary', savedPrimary)
 
 const TanStackQueryProviderContext = TanStackQueryProvider.getContext()
 
@@ -36,6 +43,9 @@ if (rootElement && !rootElement.innerHTML) {
     <StrictMode>
       <TanStackQueryProvider.Provider {...TanStackQueryProviderContext}>
         <RouterProvider router={router} />
+        <div className="fixed bottom-6 right-6 z-50">
+          <CustomizeStylesMenu alignment="top" />
+        </div>
       </TanStackQueryProvider.Provider>
     </StrictMode>,
   )

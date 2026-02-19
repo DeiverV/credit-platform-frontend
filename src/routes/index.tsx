@@ -1,17 +1,12 @@
-import { createFileRoute } from '@tanstack/react-router'
-
-import { Seo } from '@/features/landing/components/seo'
-import { LandingPage } from '@/features/landing/landing.page'
-import { CustomizeStylesMenu } from '@/components/ui/customize-styles-menu'
+import { createFileRoute, redirect } from '@tanstack/react-router'
+import Cookies from 'js-cookie'
 
 export const Route = createFileRoute('/')({
-  component: () => (
-    <>
-      <Seo />
-      <LandingPage />
-      <div className="fixed bottom-4 right-4 md:bottom-12 md:right-12 z-50">
-        <CustomizeStylesMenu />
-      </div>
-    </>
-  ),
+  beforeLoad: () => {
+    if (Cookies.get('accessToken')) {
+      throw redirect({ to: '/credits' })
+    }
+    throw redirect({ to: '/auth' })
+  },
+  component: () => null,
 })

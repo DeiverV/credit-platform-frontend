@@ -1,1 +1,43 @@
-{}
+{
+  "translation": {},
+  "auth": {
+    "page": {
+      "title": "Credit Platform",
+      "subtitle": "Multi-country credit platform"
+    },
+    "tabs": {
+      "login": "Sign in",
+      "register": "Create account"
+    },
+    "login": {
+      "title": "Welcome back",
+      "description": "Enter your credentials to continue",
+      "email": "Email",
+      "emailPlaceholder": "you@email.com",
+      "password": "Password",
+      "passwordPlaceholder": "••••••••",
+      "submit": "Sign in",
+      "submitting": "Signing in...",
+      "errorFallback": "Sign in failed. Please try again."
+    },
+    "register": {
+      "title": "Create account",
+      "description": "Fill in the form to register",
+      "email": "Email",
+      "emailPlaceholder": "you@email.com",
+      "password": "Password",
+      "passwordPlaceholder": "••••••••",
+      "confirmPassword": "Confirm password",
+      "confirmPasswordPlaceholder": "••••••••",
+      "passwordsMismatch": "Passwords do not match",
+      "submit": "Create account",
+      "submitting": "Creating account...",
+      "errorFallback": "Could not create account. Please try again."
+    }
+  },
+  "common": {
+    "theme": "Theme",
+    "language": "Language",
+    "primaryColor": "Primary color"
+  }
+}

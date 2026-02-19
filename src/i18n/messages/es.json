@@ -1,1 +1,43 @@
-{}
+{
+  "translation": {},
+  "auth": {
+    "page": {
+      "title": "Credit Platform",
+      "subtitle": "Plataforma de crédito multi-país"
+    },
+    "tabs": {
+      "login": "Iniciar sesión",
+      "register": "Crear cuenta"
+    },
+    "login": {
+      "title": "Bienvenido de nuevo",
+      "description": "Ingresa tus credenciales para continuar",
+      "email": "Correo electrónico",
+      "emailPlaceholder": "tu@correo.com",
+      "password": "Contraseña",
+      "passwordPlaceholder": "••••••••",
+      "submit": "Iniciar sesión",
+      "submitting": "Iniciando sesión...",
+      "errorFallback": "Error al iniciar sesión. Intenta de nuevo."
+    },
+    "register": {
+      "title": "Crear cuenta",
+      "description": "Completa el formulario para registrarte",
+      "email": "Correo electrónico",
+      "emailPlaceholder": "tu@correo.com",
+      "password": "Contraseña",
+      "passwordPlaceholder": "••••••••",
+      "confirmPassword": "Confirmar contraseña",
+      "confirmPasswordPlaceholder": "••••••••",
+      "passwordsMismatch": "Las contraseñas no coinciden",
+      "submit": "Crear cuenta",
+      "submitting": "Creando cuenta...",
+      "errorFallback": "No se pudo crear la cuenta. Intenta de nuevo."
+    }
+  },
+  "common": {
+    "theme": "Tema",
+    "language": "Idioma",
+    "primaryColor": "Color primario"
+  }
+}

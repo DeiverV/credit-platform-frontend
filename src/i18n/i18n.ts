@@ -1,6 +1,12 @@
 import i18n from 'i18next'
 import LanguageDetector from 'i18next-browser-languagedetector'
 import { initReactI18next } from 'react-i18next'
+
+import { z } from 'zod'
+import { makeZodI18nMap } from 'zod-i18n-map'
+import zodEs from 'zod-i18n-map/locales/es/zod.json'
+import zodEn from 'zod-i18n-map/locales/en/zod.json'
+
 import es from './messages/es.json'
 import en from './messages/en.json'
 
@@ -24,10 +30,12 @@ i18n
     supportedLngs: ['en', 'es'],
     keySeparator: '.',
     resources: {
-      es: { ...es },
-      en: { ...en },
+      es: { ...es, zod: zodEs },
+      en: { ...en, zod: zodEn },
     },
   })
+
+z.setErrorMap(makeZodI18nMap({ ns: ['zod'], handlePath: false }))
 
 export const i18nSetLang = async (lang: Lang) => {
   await i18n.changeLanguage(lang)

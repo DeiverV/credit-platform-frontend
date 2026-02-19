@@ -1,3 +1,4 @@
+import { CreditsPage } from '@/features/credits/presentation/credits-page'
 import { createFileRoute } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/credits')({
@@ -5,5 +6,5 @@ export const Route = createFileRoute('/credits')({
 })
 
 function RouteComponent() {
-  return <div>Credits</div>
+  return <CreditsPage />
 }
