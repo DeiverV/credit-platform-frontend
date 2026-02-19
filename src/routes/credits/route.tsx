@@ -1,13 +1,13 @@
-import { listCreditsSearchSchema } from '@/features/credits/core/domain/credits.schemas'
-import { CreditsPage } from '@/features/credits/presentation/credits-page'
-import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute, Outlet } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/credits')({
   component: RouteComponent,
-  validateSearch: (search: Record<string, unknown>) =>
-    listCreditsSearchSchema.parse(search),
 })
 
 function RouteComponent() {
-  return <CreditsPage />
+  return (
+    <main className="container mx-auto py-10 min-h-screen bg-neutral min-w-screen px-[10%] overflow-y-scroll">
+      <Outlet />
+    </main>
+  )
 }

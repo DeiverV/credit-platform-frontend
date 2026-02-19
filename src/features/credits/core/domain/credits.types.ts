@@ -9,13 +9,16 @@ export interface ICreditApplication {
   documentId: string
   requestedAmount: number
   monthlyIncome: number
-  status: string
+  status: CreditStatus
   riskScore: number
   riskNotes: string
   applicationDate: string
-  createdAt: string
-  updatedAt: string
 }
+
+export type ICreditApplicationResume = Omit<
+  ICreditApplication,
+  'riskNotes' | 'riskScore'
+>
 
 export interface ICreateCreditPayload {
   country: Country
@@ -35,7 +38,7 @@ export interface IListCreditsPayload {
 }
 
 export interface IListCreditsResponse {
-  data: ICreditApplication[]
+  data: ICreditApplicationResume[]
   total: number
   page: number
   limit: number

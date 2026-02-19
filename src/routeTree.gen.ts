@@ -12,6 +12,8 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as CreditsRouteRouteImport } from './routes/credits/route'
 import { Route as AuthRouteRouteImport } from './routes/auth/route'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CreditsIndexRouteImport } from './routes/credits/index'
+import { Route as CreditsCreditIdRouteImport } from './routes/credits/$creditId'
 
 const CreditsRouteRoute = CreditsRouteRouteImport.update({
   id: '/credits',
@@ -28,35 +30,56 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CreditsIndexRoute = CreditsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => CreditsRouteRoute,
+} as any)
+const CreditsCreditIdRoute = CreditsCreditIdRouteImport.update({
+  id: '/$creditId',
+  path: '/$creditId',
+  getParentRoute: () => CreditsRouteRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/auth': typeof AuthRouteRoute
-  '/credits': typeof CreditsRouteRoute
+  '/credits': typeof CreditsRouteRouteWithChildren
+  '/credits/$creditId': typeof CreditsCreditIdRoute
+  '/credits/': typeof CreditsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/auth': typeof AuthRouteRoute
-  '/credits': typeof CreditsRouteRoute
+  '/credits/$creditId': typeof CreditsCreditIdRoute
+  '/credits': typeof CreditsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/auth': typeof AuthRouteRoute
-  '/credits': typeof CreditsRouteRoute
+  '/credits': typeof CreditsRouteRouteWithChildren
+  '/credits/$creditId': typeof CreditsCreditIdRoute
+  '/credits/': typeof CreditsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/auth' | '/credits'
+  fullPaths: '/' | '/auth' | '/credits' | '/credits/$creditId' | '/credits/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/auth' | '/credits'
-  id: '__root__' | '/' | '/auth' | '/credits'
+  to: '/' | '/auth' | '/credits/$creditId' | '/credits'
+  id:
+    | '__root__'
+    | '/'
+    | '/auth'
+    | '/credits'
+    | '/credits/$creditId'
+    | '/credits/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AuthRouteRoute: typeof AuthRouteRoute
-  CreditsRouteRoute: typeof CreditsRouteRoute
+  CreditsRouteRoute: typeof CreditsRouteRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
@@ -82,13 +105,41 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/credits/': {
+      id: '/credits/'
+      path: '/'
+      fullPath: '/credits/'
+      preLoaderRoute: typeof CreditsIndexRouteImport
+      parentRoute: typeof CreditsRouteRoute
+    }
+    '/credits/$creditId': {
+      id: '/credits/$creditId'
+      path: '/$creditId'
+      fullPath: '/credits/$creditId'
+      preLoaderRoute: typeof CreditsCreditIdRouteImport
+      parentRoute: typeof CreditsRouteRoute
+    }
   }
 }
+
+interface CreditsRouteRouteChildren {
+  CreditsCreditIdRoute: typeof CreditsCreditIdRoute
+  CreditsIndexRoute: typeof CreditsIndexRoute
+}
+
+const CreditsRouteRouteChildren: CreditsRouteRouteChildren = {
+  CreditsCreditIdRoute: CreditsCreditIdRoute,
+  CreditsIndexRoute: CreditsIndexRoute,
+}
+
+const CreditsRouteRouteWithChildren = CreditsRouteRoute._addFileChildren(
+  CreditsRouteRouteChildren,
+)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AuthRouteRoute: AuthRouteRoute,
-  CreditsRouteRoute: CreditsRouteRoute,
+  CreditsRouteRoute: CreditsRouteRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

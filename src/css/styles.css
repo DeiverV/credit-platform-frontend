@@ -63,6 +63,7 @@ html,
 body {
   scroll-behavior: smooth;
   background-color: var(--color-primary);
+  overflow-x: hidden;
 }
 
 @layer utilities {

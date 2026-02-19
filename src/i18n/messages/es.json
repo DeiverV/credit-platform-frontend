@@ -39,7 +39,9 @@
     "theme": "Tema",
     "language": "Idioma",
     "primaryColor": "Color primario",
-    "pickDate": "Selecciona una fecha"
+    "pickDate": "Selecciona una fecha",
+    "save": "Guardar",
+    "cancel": "Cancelar"
   },
   "credits": {
     "filters": {
@@ -52,6 +54,10 @@
       "apply": "Aplicar filtros",
       "clear": "Limpiar"
     },
+    "createCredit": {
+      "title": "Crear solicitud de crédito",
+      "description": "Ingresa la información para la nueva solicitud de crédito."
+    },
     "credit": {
       "fullName": "Nombre completo",
       "applicationDate": "Fecha de solicitud",
@@ -61,14 +67,17 @@
       "monthlyIncome": "Ingreso mensual",
       "requestedAmount": "Monto solicitado",
       "riskNotes": "Notas de riesgo",
-      "riskScore": "Puntaje de riesgo"
+      "riskScore": "Puntaje de riesgo",
+      "status": "Estado",
+      "title": "Detalles del crédito"
     },
     "page": {
       "title": "Solicitudes de crédito",
       "listTitle": "Lista de solicitudes de crédito",
       "listDescription": "Administra las solicitudes de crédito recibidas.",
       "emptyState": "No hay créditos",
-      "logout": "Cerrar sesión"
+      "logout": "Cerrar sesión",
+      "create": "Crear crédito"
     },
     "status": {
       "PENDING": "Pendiente",

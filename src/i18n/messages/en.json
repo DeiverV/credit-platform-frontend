@@ -39,7 +39,9 @@
     "theme": "Theme",
     "language": "Language",
     "primaryColor": "Primary color",
-    "pickDate": "Select a date"
+    "pickDate": "Select a date",
+    "save": "Save",
+    "cancel": "Cancel"
   },
   "credits": {
     "filters": {
@@ -52,6 +54,10 @@
       "apply": "Apply filters",
       "clear": "Clear"
     },
+    "createCredit": {
+      "title": "Create credit application",
+      "description": "Enter the information for the new credit application."
+    },
     "credit": {
       "fullName": "Full name",
       "applicationDate": "Application date",
@@ -61,14 +67,17 @@
       "monthlyIncome": "Monthly income",
       "requestedAmount": "Requested amount",
       "riskNotes": "Risk notes",
-      "riskScore": "Risk score"
+      "riskScore": "Risk score",
+      "status": "Status",
+      "title": "Credit details"
     },
     "page": {
       "title": "Credit Applications",
       "listTitle": "List of credit applications",
       "listDescription": "Manage the received credit applications.",
       "emptyState": "No credits found",
-      "logout": "Logout"
+      "logout": "Logout",
+      "create": "Create"
     },
     "status": {
       "PENDING": "Pending",
