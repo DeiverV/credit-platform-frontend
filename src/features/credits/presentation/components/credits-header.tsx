@@ -29,6 +29,7 @@ export const CreditsHeader = () => {
           variant="outline"
           className="w-full sm:w-auto bg-primary text-white"
           onClick={() => logoutMutation.mutateAsync()}
+          disabled={logoutMutation.isPending}
         >
           <LogOut className="h-4 w-4 stroke-white" />
           {t('page.logout')}

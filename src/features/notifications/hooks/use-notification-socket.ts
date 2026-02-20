@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { useSocket } from '@/providers/socket.provider'
 import { useNotificationStore } from '../notifications.store'
 import { useQueryClient } from '@tanstack/react-query'
@@ -8,6 +8,7 @@ export const useNotificationSocket = () => {
   const { socket } = useSocket()
   const addNotification = useNotificationStore((state) => state.addNotification)
   const queryClient = useQueryClient()
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null)
 
   useEffect(() => {
     if (!socket) return
@@ -40,11 +41,20 @@ export const useNotificationSocket = () => {
         message: `Application ${data.applicationId.slice(0, 6)}... changed from ${data.oldStatus} to ${data.newStatus}`,
         type: 'info',
       })
-      queryClient.invalidateQueries({
-        queryKey: [CreditsQueryKeys.LIST_CREDITS],
-        refetchType: 'all',
-        exact: false,
-      })
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current)
+      }
+
+      timeoutRef.current = setTimeout(() => {
+        queryClient.invalidateQueries({
+          queryKey: [CreditsQueryKeys.LIST_CREDITS],
+          refetchType: 'all',
+          exact: false,
+        })
+        queryClient.invalidateQueries({
+          queryKey: [CreditsQueryKeys.GET_CREDIT_BY_ID],
+        })
+      }, 2000)
     }
 
     socket.on('application_created', handleApplicationCreated)

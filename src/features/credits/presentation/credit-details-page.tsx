@@ -84,27 +84,29 @@ export const CreditDetailsPage = () => {
               </CardTitle>
             </CardHeader>
             <CardContent className="grid gap-4">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label className="text-sm font-medium text-muted-foreground">
+                  <label className="text-sm font-bold text-muted-foreground">
                     {t('credit.fullName')}
                   </label>
-                  <p className="font-medium">{credit.fullName}</p>
+                  <p className="font-medium line-clamp-2 text-ellipsis">
+                    {credit.fullName}
+                  </p>
                 </div>
                 <div>
-                  <label className="text-sm font-medium text-muted-foreground">
+                  <label className="text-sm font-bold text-muted-foreground">
                     {t('credit.documentType')}
                   </label>
                   <p className="font-medium">{credit.documentType}</p>
                 </div>
                 <div>
-                  <label className="text-sm font-medium text-muted-foreground">
+                  <label className="text-sm font-bold text-muted-foreground">
                     {t('credit.documentId')}
                   </label>
                   <p className="font-medium">{credit.documentId}</p>
                 </div>
                 <div>
-                  <label className="text-sm font-medium text-muted-foreground">
+                  <label className="text-sm font-bold text-muted-foreground">
                     {t('credit.country')}
                   </label>
                   <p className="font-medium text-2xl">{credit.country}</p>
@@ -122,17 +124,17 @@ export const CreditDetailsPage = () => {
               </CardTitle>
             </CardHeader>
             <CardContent className="grid gap-4">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label className="text-sm font-medium text-muted-foreground">
+                  <label className="text-sm font-bold text-muted-foreground">
                     {t('credit.requestedAmount')}
                   </label>
-                  <p className="font-bold text-3xl">
+                  <p className="font-bold text-3xl line-clamp-1 overflow-hidden text-ellipsis">
                     ${credit.requestedAmount.toLocaleString()}
                   </p>
                 </div>
                 <div>
-                  <label className="text-sm font-medium text-muted-foreground">
+                  <label className="text-sm font-bold text-muted-foreground">
                     {t('credit.monthlyIncome')}
                   </label>
                   <p className="font-medium text-3xl">
@@ -152,9 +154,9 @@ export const CreditDetailsPage = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="flex flex-col gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label className="text-lg font-medium text-muted-foreground block mb-2">
+                    <label className="text-lg font-bold text-muted-foreground block mb-2">
                       {t('credit.riskScore')}
                     </label>
                     <div className="flex items-center gap-4">
@@ -163,24 +165,11 @@ export const CreditDetailsPage = () => {
                           {credit.riskScore}
                         </span>
                       </div>
-                      <div className="flex-1">
-                        <div className="h-4 w-full bg-muted border rounded-full overflow-hidden">
-                          <div
-                            className={`h-full ${credit.riskScore > 700 ? 'bg-green-500' : credit.riskScore > 500 ? 'bg-yellow-500' : 'bg-red-500'}`}
-                            style={{
-                              width: `${(credit.riskScore / 1000) * 100}%`,
-                            }}
-                          />
-                        </div>
-                        <p className="text-xs text-muted-foreground mt-1">
-                          Score verification based on internal policies
-                        </p>
-                      </div>
                     </div>
                   </div>
 
                   <div>
-                    <label className="text-lg font-medium text-muted-foreground mb-2 flex items-center gap-2">
+                    <label className="text-lg font-bold text-muted-foreground mb-2 flex items-center gap-2">
                       <FileText className="h-4 w-4" />
                       {t('credit.riskNotes')}
                     </label>

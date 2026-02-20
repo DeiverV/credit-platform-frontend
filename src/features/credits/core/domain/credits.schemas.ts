@@ -31,8 +31,8 @@ export type ListCreditsSearchValues = z.infer<typeof listCreditsSearchSchema>
 
 export const createCreditSchema = z.object({
   country: z.enum(['CO', 'MX'] as [Country, ...Country[]]),
-  fullName: z.string().max(100),
-  documentId: z.string(),
+  fullName: z.string().max(70),
+  documentId: z.string().max(20),
   requestedAmount: z.coerce.number().positive(),
   monthlyIncome: z.coerce.number().positive(),
 })

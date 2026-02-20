@@ -35,13 +35,13 @@ export const NotificationPanel = () => {
           </div>
         )}
       </div>
-      <ScrollArea className="flex-1">
+      <ScrollArea className="flex-1 min-h-0">
         {notifications.length === 0 ? (
           <div className="flex flex-col items-center justify-center h-full p-4 mt-35 text-muted-foreground gap-2">
             <BellOff className="h-8 w-8 opacity-20" />
           </div>
         ) : (
-          <div className="grid gap-1 p-1 max-h-[320px] overflow-scroll">
+          <div className="grid gap-1 p-1">
             {notifications.map((notification) => (
               <div
                 key={notification.id}
@@ -59,9 +59,9 @@ export const NotificationPanel = () => {
                     })}
                   </span>
                 </div>
-                <div className="text-muted-foreground line-clamp-2 pr-4">
+                <p className="text-muted-foreground whitespace-normal pr-4">
                   {notification.message}
-                </div>
+                </p>
                 {!notification.read && (
                   <span className="absolute top-1/2 -translate-y-1/2 right-2 h-2 w-2 rounded-full bg-blue-500" />
                 )}
