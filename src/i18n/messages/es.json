@@ -77,7 +77,8 @@
       "listDescription": "Administra las solicitudes de crédito recibidas.",
       "emptyState": "No hay créditos",
       "logout": "Cerrar sesión",
-      "create": "Crear crédito"
+      "create": "Crear crédito",
+      "loadMore": "Cargar más"
     },
     "status": {
       "PENDING": "Pendiente",

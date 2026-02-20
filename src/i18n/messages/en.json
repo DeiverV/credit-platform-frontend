@@ -77,7 +77,8 @@
       "listDescription": "Manage the received credit applications.",
       "emptyState": "No credits found",
       "logout": "Logout",
-      "create": "Create"
+      "create": "Create",
+      "loadMore": "Load more"
     },
     "status": {
       "PENDING": "Pending",
